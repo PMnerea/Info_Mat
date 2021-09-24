@@ -2,15 +2,6 @@
 #include "MyTimer.h"
 #include "stm32f10x.h"
 
-// TIM1 Update interrupt postition 25
-#define TIM1_UPDATE_INTERRUPT_POS 25;
-// TIM2 interrupt general position 28
-#define TIM2_GENERAL_INTERRUPT_POS 28;
-// TIM3 interrupt general position 29
-#define TIM3_GENERAL_INTERRUPT_POS 29;
-// TIM4 interrupt general position 30
-#define TIM4_GENERAL_INTERRUPT_POS 30;
-
 // 4 pointeurs pour les 4 timers
 static void (* pFuncTIM1) (void);
 static void (* pFuncTIM2) (void);
@@ -44,20 +35,43 @@ void MyTimer_Base_Init(MyTimer_Struct_TypeDef * Timer){
 	}
 }
 
+void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio){
+	// enable IT Timer overflow
+    Timer->DIER |= 0x1;
+		// les codes IRQ negatifs sont pour le systeme interne du processeur
+    // les codes IRQ positifs sont pour ce qui est externe
+    // NVIC_EnableIRQ(...) function in startup
+    // NVIC_SetPriority(...) function in startup
+	
+		if(Timer == TIM1){
+  		NVIC_EnableIRQ(TIM1_UP_IRQn);
+      //NVIC_SetPriority(TIM1_UP_IRQn,Prio);
+  	}else if (Timer == TIM2){
+  		NVIC_EnableIRQ(TIM2_IRQn);
+      //NVIC_SetPriority(TIM2_IRQn,Prio);
+    }else if (Timer == TIM3) {
+  		NVIC_EnableIRQ(TIM3_IRQn);
+      //NVIC_SetPriority(TIM3_IRQn,Prio);
+  	}else if (Timer == TIM4){
+  		NVIC_EnableIRQ(TIM4_IRQn);
+      //NVIC_SetPriority(TIM4_IRQn,Prio);
+  	};
+}
+
   /*
   1. Analyser le périphérique et repérer l’événement à prendre en compte
 	2. Trouver le numéro (et donc le vecteur associé) de l’interruption concernée
-	3.Configurer les registres du périphérique pour valider en local l’envoi d’une demande d’interruption
+	3. Configurer les registres du périphérique pour valider en local l’envoi d’une demande d’interruption
 	4. Fixer dans le NVIC la priorité de l’interruption
 	5. Autoriser dans le NVIC la prise en compte de l’interruption
-	6.Trouver le nom du Handler de l’interruption et écrire une routine avec le même prototype quine sera pas weak. Dans cette routineil est impératif d’effacer le bit du périphérique quiprovoque le déclenchement de l’interruptionfaute de quoi celle-ci sera derechef activée auretour (même si dans cer-tains rares cas cela est fait automatiquement...).
+	6. Trouver le nom du Handler de l’interruption et écrire une routine avec le même prototype quine sera pas weak. Dans cette routineil est impératif d’effacer le bit du périphérique quiprovoque le déclenchement de l’interruptionfaute de quoi celle-ci sera derechef activée auretour (même si dans cer-tains rares cas cela est fait automatiquement...).
+	*/
 
   void TIM4_IRQHandler(void){
-    TIM4->DIER &= 0x0 <<8;
-    if(pFuncTIM1 != 0){
-      (*pFuncTIM4)();
-    };
-  };*/
+		TIM4->SR &= ~TIM_SR_UIF;
+		
+		
+  };
 
 
 

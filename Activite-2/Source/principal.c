@@ -21,6 +21,7 @@ int main(void){
 	TIM.ARR = 5999;
 	TIM.PSC = 5999;
 	MyTimer_Base_Init(&TIM);
+	MyTimer_ActiveIT(TIM.TIMER, 4);
 	
 	while(1);
 }
