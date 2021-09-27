@@ -23,16 +23,12 @@ void MyGPIO_Init ( MyGPIO_Struct_TypeDef * GPIOStructPtr) {
 				// Accéder au registre correspondant et l'allumer
         GPIOStructPtr->GPIO->CRL &= ~(0xF << 4 * GPIOStructPtr->GPIO_Pin); 
         GPIOStructPtr->GPIO->CRL |= GPIOStructPtr->GPIO_Conf << 4*GPIOStructPtr->GPIO_Pin; 
-			// Modification de l'ODR
-				GPIOStructPtr->GPIO->ODR |= (0x1 << GPIOStructPtr->GPIO_Pin);
     }
     else {
         GPIO_Init_Input_ODR(GPIOStructPtr); 
 				// Accéder au registre correspondant et l'allumer
         GPIOStructPtr->GPIO->CRH &= ~(0xF << 4 * (GPIOStructPtr->GPIO_Pin-8)); 
         GPIOStructPtr->GPIO->CRH |= GPIOStructPtr->GPIO_Conf << 4*(GPIOStructPtr->GPIO_Pin-8);
-				// Modification de l'ODR
-				GPIOStructPtr->GPIO->ODR |= (0x1 << GPIOStructPtr->GPIO_Pin);
     }
 }
 
@@ -54,14 +50,6 @@ void MyGPIO_Reset ( GPIO_TypeDef * GPIO , char GPIO_Pin ) {
 }
 
 void MyGPIO_Toggle ( GPIO_TypeDef * GPIO , char GPIO_Pin ) {
-    // Inverse la valeur du pin 
-    // Créer un masque avec juste le bit du pin à 1 pour pouvoir
-    char idrPin = 0x1 << GPIO_Pin;
-    // Si le bit du pin est à 1 alors on le met à 0 et inversement
-    if (GPIO -> IDR & idrPin) {
-        MyGPIO_Reset(GPIO, GPIO_Pin);
-    }
-    else {
-        MyGPIO_Set(GPIO, GPIO_Pin); 
-    }
+    GPIO->ODR ^= 0x1<<GPIO_Pin;
 }
+

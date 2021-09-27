@@ -35,7 +35,7 @@ void MyTimer_Base_Init(MyTimer_Struct_TypeDef * Timer){
 	}
 }
 
-void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio){
+void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio, void (*IT_function)(void)){
 	// enable IT Timer overflow
     Timer->DIER |= 0x1;
 		// les codes IRQ negatifs sont pour le systeme interne du processeur
@@ -46,16 +46,27 @@ void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio){
 		if(Timer == TIM1){
   		NVIC_EnableIRQ(TIM1_UP_IRQn);
       //NVIC_SetPriority(TIM1_UP_IRQn,Prio);
+			pFuncTIM1 = IT_function;
   	}else if (Timer == TIM2){
   		NVIC_EnableIRQ(TIM2_IRQn);
       //NVIC_SetPriority(TIM2_IRQn,Prio);
+			pFuncTIM2 = IT_function;
     }else if (Timer == TIM3) {
   		NVIC_EnableIRQ(TIM3_IRQn);
       //NVIC_SetPriority(TIM3_IRQn,Prio);
+			pFuncTIM3 = IT_function;
   	}else if (Timer == TIM4){
   		NVIC_EnableIRQ(TIM4_IRQn);
       //NVIC_SetPriority(TIM4_IRQn,Prio);
+			pFuncTIM4 = IT_function;
   	};
+}
+
+void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel) {
+	TIM4->CCER |= TIM_CCER_CC1E;   //0x1 << 3;
+	TIM4->CCMR1 |=  (0x1 << 2 | 0x1 << 1) << 4;
+	
+
 }
 
   /*
@@ -66,12 +77,32 @@ void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio){
 	5. Autoriser dans le NVIC la prise en compte de l’interruption
 	6. Trouver le nom du Handler de l’interruption et écrire une routine avec le même prototype quine sera pas weak. Dans cette routineil est impératif d’effacer le bit du périphérique quiprovoque le déclenchement de l’interruptionfaute de quoi celle-ci sera derechef activée auretour (même si dans cer-tains rares cas cela est fait automatiquement...).
 	*/
+	void TIM1_IRQHandler(void){
+		TIM1->SR &= ~TIM_SR_UIF;
+		if (pFuncTIM1 != 0) {
+			(*pFuncTIM1)();
+		}
+  };
+
+	void TIM2_IRQHandler(void){
+		TIM2->SR &= ~TIM_SR_UIF;
+		if (pFuncTIM2 != 0) {
+			(*pFuncTIM2)();
+		}
+  };
+
+	void TIM3_IRQHandler(void){
+		TIM3->SR &= ~TIM_SR_UIF;
+		if (pFuncTIM3 != 0) {
+			(*pFuncTIM3)();
+		}
+  };
 
   void TIM4_IRQHandler(void){
 		TIM4->SR &= ~TIM_SR_UIF;
-		
-		
+		if (pFuncTIM4 != 0) {
+			(*pFuncTIM4)();
+		}
   };
-
 
 

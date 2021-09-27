@@ -7,6 +7,17 @@
 #define BUTTON 13
 
 
+void callback(void) {
+	MyGPIO_Struct_TypeDef Led; 
+	
+	Led.GPIO = GPIOA; 
+	Led.GPIO_Pin = 5; 
+	Led.GPIO_Conf = OUT_PPULL;
+	
+	MyGPIO_Init(&Led); 
+	MyGPIO_Toggle(Led.GPIO, Led.GPIO_Pin);
+}
+
 int main(void){
 	//RCC->APB2ENR |= (0x01 << 2) | (0x01<< 3) | (0x01 << 4); // Allumer la clock
 	// Test allumage du timer 2 manuelement
@@ -21,7 +32,8 @@ int main(void){
 	TIM.ARR = 5999;
 	TIM.PSC = 5999;
 	MyTimer_Base_Init(&TIM);
-	MyTimer_ActiveIT(TIM.TIMER, 4);
+	MyTimer_ActiveIT(TIM.TIMER, 4, callback);
 	
+	MyTimer_PWM(TIM.TIMER ,1);
 	while(1);
 }
