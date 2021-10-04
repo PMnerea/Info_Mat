@@ -66,7 +66,18 @@ void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel) {
 	TIM4->CCER |= TIM_CCER_CC1E;   //0x1 << 3;
 	TIM4->CCMR1 |=  (0x1 << 2 | 0x1 << 1) << 4;
 	
-
+	if (Channel == 1) {
+		Timer->CCMR1 |= TIM_CCMR1_OC1M;
+	}
+	else if (Channel == 2) {
+		Timer->CCER |= TIM_CCER_CC1E;
+	}
+	else if (Channel == 3) {
+		Timer->CCMR2 |= TIM_CCMR2_OC3M;
+	}
+	else {
+		Timer->CCMR2 |= TIM_CCMR2_OC4M;
+	}
 }
 
   /*
