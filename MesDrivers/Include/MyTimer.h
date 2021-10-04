@@ -20,7 +20,8 @@ typedef struct
 
 void MyTimer_Base_Init(MyTimer_Struct_TypeDef * Timer);
 void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio, void (*IT_function)(void));
-void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel);
+// RC correspond au Rapport Cyclique de la PWM, c'est un pourcentage
+void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel, int RC);
 
 #define MyTimer_Base_Start(Timer)(Timer->TimId->CR1 |= 0x1)
 #define MyTimer_Base_Stop(Timer)(Timer->TimId->CR1 |= 0x0)

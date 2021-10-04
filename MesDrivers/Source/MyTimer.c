@@ -62,21 +62,26 @@ void MyTimer_ActiveIT(TIM_TypeDef * Timer, char Prio, void (*IT_function)(void))
   	};
 }
 
-void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel) {
-	TIM4->CCER |= TIM_CCER_CC1E;   //0x1 << 3;
-	TIM4->CCMR1 |=  (0x1 << 2 | 0x1 << 1) << 4;
-	
+void MyTimer_PWM(TIM_TypeDef*Timer ,char Channel, int RC) {
 	if (Channel == 1) {
-		Timer->CCMR1 |= TIM_CCMR1_OC1M;
+		Timer->CCMR1 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2 ;
+		Timer->CCER |= TIM_CCER_CC1E;
+		Timer->CCR1 |= RC*Timer->ARR/100;
 	}
 	else if (Channel == 2) {
+		Timer->CCMR1 |= TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2;
 		Timer->CCER |= TIM_CCER_CC1E;
+		Timer->CCR2 |= RC*Timer->ARR/100;
 	}
 	else if (Channel == 3) {
-		Timer->CCMR2 |= TIM_CCMR2_OC3M;
+		Timer->CCMR2 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2 ;
+		Timer->CCER |= TIM_CCER_CC1E;
+		Timer->CCR3 |= RC*Timer->ARR/100;
 	}
 	else {
-		Timer->CCMR2 |= TIM_CCMR2_OC4M;
+		Timer->CCMR2 |= TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2;
+		Timer->CCER |= TIM_CCER_CC1E;
+		Timer->CCR4 |= RC*Timer->ARR/100;
 	}
 }
 

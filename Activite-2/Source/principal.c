@@ -7,14 +7,7 @@
 #define BUTTON 13
 
 
-void callback(void) {
-	MyGPIO_Struct_TypeDef Led; 
-	
-	Led.GPIO = GPIOA; 
-	Led.GPIO_Pin = 5; 
-	Led.GPIO_Conf = OUT_PPULL;
-	
-	MyGPIO_Init(&Led); 
+void callback(MyGPIO_Struct_TypeDef Led) {
 	MyGPIO_Toggle(Led.GPIO, Led.GPIO_Pin);
 }
 
@@ -26,14 +19,22 @@ int main(void){
 	TIM2->PSC = 5999;
 	TIM2->CR1 |= 0x1;*/
 	
-	// Test allumage d'un timer entre 1 et 4 en passant par la librairie
+	MyGPIO_Struct_TypeDef Led; 
 	MyTimer_Struct_TypeDef TIM;
-	TIM.TIMER = TIM4;
-	TIM.ARR = 5999;
-	TIM.PSC = 5999;
-	MyTimer_Base_Init(&TIM);
-	MyTimer_ActiveIT(TIM.TIMER, 4, callback);
 	
-	MyTimer_PWM(TIM.TIMER ,1);
+	Led.GPIO = GPIOB; 
+	Led.GPIO_Pin = 6; 
+	Led.GPIO_Conf = ALTOUT_PPULL;
+	
+	MyGPIO_Init(&Led); 
+	
+	// Test allumage d'un timer entre 1 et 4 en passant par la librairie
+	TIM.TIMER = TIM4;
+	TIM.ARR = 719;
+	TIM.PSC = 0;
+	MyTimer_Base_Init(&TIM);
+	//MyTimer_ActiveIT(TIM.TIMER, 4, callback);
+	
+	MyTimer_PWM(TIM.TIMER ,1, 10);
 	while(1);
 }
