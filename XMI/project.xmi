@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_4U6bIEr5EeyHBNGuuSPr8A" name="project">
+  <eAnnotations xmi:id="_4U6bIUr5EeyHBNGuuSPr8A" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_4U6bIkr5EeyHBNGuuSPr8A" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bI0r5EeyHBNGuuSPr8A" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bJEr5EeyHBNGuuSPr8A" name="UserInterface">
+    <ownedAttribute xmi:id="_4U6bJUr5EeyHBNGuuSPr8A" name="userSystem" visibility="public" type="_4U6bK0r5EeyHBNGuuSPr8A" isUnique="false" aggregation="composite" association="_4U6bKUr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bJkr5EeyHBNGuuSPr8A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bJ0r5EeyHBNGuuSPr8A" name="listOfPseudos" visibility="public" isUnique="false">
+      <ownedComment xmi:id="_4U6bKEr5EeyHBNGuuSPr8A">
+        <body>type should be List&lt;string></body>
+      </ownedComment>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4U6bKUr5EeyHBNGuuSPr8A" memberEnd="_4U6bJUr5EeyHBNGuuSPr8A _4U6bKkr5EeyHBNGuuSPr8A">
+    <ownedEnd xmi:id="_4U6bKkr5EeyHBNGuuSPr8A" visibility="public" type="_4U6bJEr5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bKUr5EeyHBNGuuSPr8A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bK0r5EeyHBNGuuSPr8A" name="UserSystem">
+    <ownedAttribute xmi:id="_4U6bLEr5EeyHBNGuuSPr8A" name="routerController" visibility="public" type="_4U6bdkr5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bWUr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bLUr5EeyHBNGuuSPr8A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bLkr5EeyHBNGuuSPr8A" name="databaseController" visibility="public" type="_4U6bX0r5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bXEr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bL0r5EeyHBNGuuSPr8A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bMEr5EeyHBNGuuSPr8A" name="user" visibility="public" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false"/>
+    <ownedOperation xmi:id="_4U6bMUr5EeyHBNGuuSPr8A" name="getPseudos" visibility="public">
+      <ownedParameter xmi:id="_4U6bMkr5EeyHBNGuuSPr8A" name="pseudo" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bM0r5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bNEr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bNUr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4U6bNkr5EeyHBNGuuSPr8A" name="sendMessage" visibility="public">
+      <ownedParameter xmi:id="_4U6bN0r5EeyHBNGuuSPr8A" name="localUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bOEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bOUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bOkr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bO0r5EeyHBNGuuSPr8A" name="distantUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bPEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bPUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bPkr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bP0r5EeyHBNGuuSPr8A" name="message" type="_4U6bnEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bQEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bQUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bQkr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4U6bQ0r5EeyHBNGuuSPr8A" name="getMessages" visibility="public" isAbstract="true">
+      <ownedParameter xmi:id="_4U6bREr5EeyHBNGuuSPr8A" name="localUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bRUr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bRkr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bR0r5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bSEr5EeyHBNGuuSPr8A" name="distantUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bSUr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bSkr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bS0r5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4U6bTEr5EeyHBNGuuSPr8A" name="storeMessage" visibility="public">
+      <ownedParameter xmi:id="_4U6bTUr5EeyHBNGuuSPr8A" name="localUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bTkr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bT0r5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bUEr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bUUr5EeyHBNGuuSPr8A" name="distantUser" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bUkr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bU0r5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bVEr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bVUr5EeyHBNGuuSPr8A" name="message" type="_4U6bnEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bVkr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bV0r5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bWEr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4U6bWUr5EeyHBNGuuSPr8A" memberEnd="_4U6bLEr5EeyHBNGuuSPr8A _4U6bWkr5EeyHBNGuuSPr8A">
+    <ownedEnd xmi:id="_4U6bWkr5EeyHBNGuuSPr8A" visibility="public" type="_4U6bK0r5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bWUr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bW0r5EeyHBNGuuSPr8A"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4U6bXEr5EeyHBNGuuSPr8A" memberEnd="_4U6bLkr5EeyHBNGuuSPr8A _4U6bXUr5EeyHBNGuuSPr8A">
+    <ownedEnd xmi:id="_4U6bXUr5EeyHBNGuuSPr8A" visibility="public" type="_4U6bK0r5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bXEr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bXkr5EeyHBNGuuSPr8A"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bX0r5EeyHBNGuuSPr8A" name="DatabaseController">
+    <ownedOperation xmi:id="_4U6bYEr5EeyHBNGuuSPr8A" name="getMessages" visibility="public">
+      <ownedParameter xmi:id="_4U6bYUr5EeyHBNGuuSPr8A" name="pseudo1" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bYkr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bY0r5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bZEr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bZUr5EeyHBNGuuSPr8A" name="pseudo2" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bZkr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bZ0r5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6baEr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4U6baUr5EeyHBNGuuSPr8A" name="storeMessage" visibility="public">
+      <ownedParameter xmi:id="_4U6bakr5EeyHBNGuuSPr8A" name="pseudo1" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6ba0r5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bbEr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bbUr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bbkr5EeyHBNGuuSPr8A" name="pseudo2" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bb0r5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bcEr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bcUr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bckr5EeyHBNGuuSPr8A" name="message" type="_4U6bnEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bc0r5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bdEr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bdUr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bdkr5EeyHBNGuuSPr8A" name="RouterController">
+    <ownedAttribute xmi:id="_4U6bd0r5EeyHBNGuuSPr8A" name="tCPtransmitter" visibility="public" type="_4U6bhUr5EeyHBNGuuSPr8A" isUnique="false" aggregation="shared" association="_4U6bfUr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6beEr5EeyHBNGuuSPr8A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6beUr5EeyHBNGuuSPr8A" name="uDPtransmitter" visibility="public" type="_4U6bg0r5EeyHBNGuuSPr8A" isUnique="false" aggregation="shared" association="_4U6bgEr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bekr5EeyHBNGuuSPr8A"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6be0r5EeyHBNGuuSPr8A" name="pseudosIPAddresses" visibility="public" isUnique="false">
+      <ownedComment xmi:id="_4U6bfEr5EeyHBNGuuSPr8A">
+        <body>a table of connected pseudos and their IP addresses</body>
+      </ownedComment>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4U6bfUr5EeyHBNGuuSPr8A" memberEnd="_4U6bd0r5EeyHBNGuuSPr8A _4U6bfkr5EeyHBNGuuSPr8A">
+    <ownedEnd xmi:id="_4U6bfkr5EeyHBNGuuSPr8A" visibility="public" type="_4U6bdkr5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bfUr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bf0r5EeyHBNGuuSPr8A"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4U6bgEr5EeyHBNGuuSPr8A" memberEnd="_4U6beUr5EeyHBNGuuSPr8A _4U6bgUr5EeyHBNGuuSPr8A">
+    <ownedEnd xmi:id="_4U6bgUr5EeyHBNGuuSPr8A" visibility="public" type="_4U6bdkr5EeyHBNGuuSPr8A" isUnique="false" association="_4U6bgEr5EeyHBNGuuSPr8A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bgkr5EeyHBNGuuSPr8A"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bg0r5EeyHBNGuuSPr8A" name="UDPtransmitter">
+    <ownedOperation xmi:id="_4U6bhEr5EeyHBNGuuSPr8A" name="getPseudosBroadcast" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bhUr5EeyHBNGuuSPr8A" name="TCPtransmitter">
+    <ownedOperation xmi:id="_4U6bhkr5EeyHBNGuuSPr8A" name="sendMessage" visibility="public">
+      <ownedParameter xmi:id="_4U6bh0r5EeyHBNGuuSPr8A" name="sender" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6biEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6biUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bikr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bi0r5EeyHBNGuuSPr8A" name="message" type="_4U6bnEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bjEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bjUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bjkr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_4U6bj0r5EeyHBNGuuSPr8A" name="reciever" type="_4U6bmEr5EeyHBNGuuSPr8A" isUnique="false">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6bkEr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6bkUr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bkkr5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4U6bk0r5EeyHBNGuuSPr8A" name="sendPseudo" visibility="public">
+      <ownedParameter xmi:id="_4U6blEr5EeyHBNGuuSPr8A" name="pseudo" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6blUr5EeyHBNGuuSPr8A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6blkr5EeyHBNGuuSPr8A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4U6bl0r5EeyHBNGuuSPr8A" value=""/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bmEr5EeyHBNGuuSPr8A" name="User">
+    <ownedAttribute xmi:id="_4U6bmUr5EeyHBNGuuSPr8A" name="pseudo" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bmkr5EeyHBNGuuSPr8A" name="identifiant" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bm0r5EeyHBNGuuSPr8A" name="adresseIP" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4U6bnEr5EeyHBNGuuSPr8A" name="Message">
+    <ownedAttribute xmi:id="_4U6bnUr5EeyHBNGuuSPr8A" name="content" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_4U6bnkr5EeyHBNGuuSPr8A" name="date" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+    </ownedAttribute>
+  </packagedElement>
+  <profileApplication xmi:id="_4WB1cEr5EeyHBNGuuSPr8A">
+    <eAnnotations xmi:id="_4WDDkEr5EeyHBNGuuSPr8A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="LocalProfile.profile.xmi#_4U_6sUr5EeyHBNGuuSPr8A"/>
+    </eAnnotations>
+    <appliedProfile href="LocalProfile.profile.xmi#_ynbT4Er5EeyHBNGuuSPr8A"/>
+  </profileApplication>
+</uml:Model>

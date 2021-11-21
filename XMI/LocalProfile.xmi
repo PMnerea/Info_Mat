@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_ynbT4Er5EeyHBNGuuSPr8A" name="LocalProfile">
+  <eAnnotations xmi:id="_ynbT4Ur5EeyHBNGuuSPr8A" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_ynbT4kr5EeyHBNGuuSPr8A" name="Module">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ynbT40r5EeyHBNGuuSPr8A" value="72ea88c7-2047-45a9-800a-84a1ab1440e1"/>
+    </contents>
+    <contents xmi:type="uml:Property" xmi:id="_ynbT5Er5EeyHBNGuuSPr8A" name="ID">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ynbT5Ur5EeyHBNGuuSPr8A" value="53dab965-d332-4eb8-bcc4-384ee4636f06"/>
+    </contents>
+    <contents xmi:type="uml:Property" xmi:id="_ynbT5kr5EeyHBNGuuSPr8A" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ynbT50r5EeyHBNGuuSPr8A" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+</uml:Profile>
